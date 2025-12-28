@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MY PROJECT</title>
+<style>
+/* Reset */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+header {
+padding: 10px 20px;
+border-bottom: 1px solid #eee;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.nav-center a {
+font-size: 24px;
+font-weight: bold;
+text-decoration: none;
+color: #000;
+letter-spacing: 2px;
+}
+
+button {
+background: none;
+border: none;
+font-size: 18px;
+cursor: pointer;
+}
+
+.cart-count {
+font-size: 12px;
+background: red;
+color: white;
+border-radius: 50%;
+padding: 2px 6px;
+position: relative;
+top: -10px;
+left: -5px;
+}
+
+/* Hero Banner */
+.hero-banner {
+position: relative;
+width: 100%;
+height: 80vh;
+overflow: hidden;
+}
+
+.hero-banner img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.banner-text {
+position: absolute;
+color: #fff;
+font-size: 18px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.left-text {
+top: 20px;
+left: 20px;
+}
+
+.right-text {
+top: 20px;
+right: 20px;
+font-weight: bold;
+}
+h2{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+}
+.reviews-btn {
+position: absolute;
+bottom: 20px;
+right: 20px;
+background: #000;
+color: #fff;
+padding: 8px 12px;
+font-size: 14px;
+border-radius: 3px;
+cursor: pointer;
+}
+
+.reviews-btn::before {
+content: "★";
+margin-right: 5px;
+}
+.nav-right img{
+border-radius: 50px;
+width: 60px;
+height: 60px;
+align-items: center;
+}
+.gallery {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+}
+.gallery-item {
+width: 30%; /* Adjust width as per your layout */
+margin: 10px;
+text-align: center;
+}
+.gallery-item img {
+width: 100%; /* Makes image fill the container */
+height: 400px; /* Fixed height like in the image */
+object-fit: cover; /* Ensures image fits nicely */
+border-radius: 8px;
+}
+.gallery-item .title {
+font-weight: bold;
+margin-top: 8px;
+font-size: 16px;
+}
+.gallery-item .price {
+color: #555;
+font-size: 14px;
+}
+ /* Header background image styling */
+ .header-bg {
+    background-image: url('pink1'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.header-content h1 {
+    font-size: 48px;
+    margin: 0;
+}
+.header-content h2 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+/* Categories section styling */
+.categories {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+  
+}
+.category {
+    display: inline-block;
+   margin: 5px;
+   padding: 5px;
+   
+   
+}
+.category{
+    width: 20%;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    
+}
+.category img{
+    width:100%;
+    height: 200px; /* adjust height as needed */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.category h3 {
+    font-size: 20px;
+    cursor: pointer;
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer Styling */
+.footer {
+    background: #f9f9f9;
+    padding: 40px 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-middle h4, .footer-right h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-middle ul, .footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li, .footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a, .footer-right ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.reviews-btn {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    background: #000;
+    color: #fff;
+    padding: 10px
+    
+   
+
+
+
+</style>
+</head>
+<body>
+    <header>
+    <nav>
+    <div class="nav-left">
+    <button class="menu-btn">☰</button>
+    </div>
+    <div class="nav-center">
+    <a href="#">ABAYA WARDROBE</a>
+    </div>
+    <div class="nav-right">
+    <img src="my logo.png" alt="img">
+    </div>
+    </nav>
+    </header>
+    
+
+
+    <main>
+    <section class="hero-banner">
+    <img src="my.jpg" alt="img">
+    <div class="banner-text left-text">DREAMY ABAYAS</div>
+    <div class="banner-text right-text">MK FASHION</div>
+            
+    </section>
+    </main>
+    <center><b><h2>SHOP BY CATEGORIES</h2></b></center>
+    <section class="categories">
+    <div class="category">
+    <h3 onclick="toggleCategory('WEDDING ABAYAS')">WEDDING ABAYAS </h3>
+    <div id="WEDDING ABAYAS" class="products hidden">
+    <div class="product"> <img src="party1.jpg" alt="img">RS: 90,000</div>
+    <div class="product"><img src="party2.jpg" alt="img" >RS: 120,000 </div>
+    <div class="product"><img src="party3.jpg" alt="img">RS: 100000</div>
+    <div class="product"><img src="party4.jpg" alt="img">RS: 200000</div>
+    <div class="product"><img src="party5.jpg" alt="img">RS: 60000</div>
+    <div class="product"><img src="party6.jpg" alt="img">RS: 70000</div>
+    <div class="product"><img src="party7.jpg" alt="img">RS: 50000</div>
+    <div class="product"><img src="party8.jpg" alt="img">RS: 50000</div>
+    <div class="product"><img src="party9.jpg" alt="img">RS: 35000</div>
+    <div class="product"><img src="party10.jpg" alt="img">RS: 300000</div>
+    </div>
+    </div>
+                    
+    <div class="category">
+    <h3 onclick="toggleCategory('WINGED ABAYAS')">WINGED ABAYAS </h3>
+    <div id="WINGED ABAYAS" class="products hidden">
+    <div class="product"> <img src="butterfly1.jpg" alt="img">RS: 9000</div>
+    <div class="product"> <img src="butterfly2.jpg" alt="img">RS: 10000</div>
+    <div class="product"> <img src="butterfly3.jpg" alt="img">RS: 9000</div>
+    <div class="product"> <img src="butterfly4.jpg" alt="img">RS: 8000</div>
+    <div class="product"> <img src="butterfly5.jpg" alt="img">RS: 6000</div>
+    <div class="product"> <img src="butterfly6.jpg" alt="img">RS: 5000</div>
+    <div class="product"> <img src="butterfly7.jpg" alt="img"> RS:4000</div>
+    <div class="product"> <img src="butterfly8.jpg" alt="img">RS: 45000</div>
+    <div class="product"> <img src="butterfly9.jpg" alt="img">RS: 4000</div>
+     <div class="product"> <img src="butterfly10.jpg" alt="img">RS: 3000</div>
+    </div>
+    </div>
+             
+    <div class="category">
+    <h3 onclick="toggleCategory('TRANDING SCARVES')">TRANDING SCARVES</h3>
+    <div id="TRANDING SCARVES" class="products hidden">
+    <div class="product"> <img src="hi1.jpg" alt="img">RS: 1900</div>
+    <div class="product"><img src="hi2.jpg" alt="img">RS: 2000</div>
+    <div class="product"> <img src="hi3.jpg" alt="img">RS: 1700</div>
+    <div class="product"> <img src="hi4.jpg" alt="img">RS: 1000</div>
+    <div class="product"> <img src="hi5.jpg" alt="img">RS: 1800</div>
+    <div class="product"> <img src="hi6.jpg" alt="img">RS: 1800</div>
+    <div class="product"> <img src="hi7.jpg" alt="img">RS: 1100</div>
+    <div class="product"> <img src="hi8.jpg" alt="img">RS: 1000</div>
+    <div class="product"> <img src="hi9.jpg" alt="img">RS: 1200</div>
+    <div class="product"><img src="hi10.jpg" alt="img">RS: 900</div>
+    </div>
+    </div>
+    <div class="category">
+    <h3 onclick="toggleCategory('HIJAB ESSENTIALS')">HIJAB ESSENTIALS  </h3>
+    <div id="HIJAB ESSENTIALS" class="products hidden">
+    <div class="product"> <img src="pin1.jpg" alt="img">RS: 500</div>
+    <div class="product"> <img src="pin2.jpg" alt="img">RS: 400</div>
+    <div class="product"><img src="pin3.jpg" alt="img">RS: 500</div>
+    <div class="product"> <img src="pin4.jpg" alt="img">RS: 300</div>
+    <div class="product"> <img src="pin5.jpg" alt="img">RS: 600</div>
+    <div class="product"> <img src="pin6.jpg" alt="img">RS: 500</div>
+    <div class="product"> <img src="pin7.jpg" alt="img">RS: 600</div>
+    <div class="product"> <img src="pin8.jpg" alt="img">RS: 600</div>
+    <div class="product"> <img src="pin9.jpg" alt="img">RS: 600</div>
+     <div class="product"> <img src="pin10.jpg" alt="img">RS: 500</div>
+    </div>
+    </div>
+
+    </section>
+                    
+    <script>
+    function toggleCategory(id) {
+    const element = document.getElementById(id);
+    element.classList.toggle('hidden');
+    }
+    </script>
+
+<h2>NEW COLLECTION</h2>
+    <div class="gallery">
+    <div class="gallery-item">
+     <img src="mmmm.jpg" alt="img">
+    <div class="title">Navy blue Abaya</div>
+    <div class="price">Rs. 4,000.00</div>
+        </div>
+    <div class="gallery-item">
+    <img src="my2.jpg" alt="img">
+    <div class="title">Olive green Abaya</div>
+    <div class="price">Rs. 7,000.00</div>
+        </div>
+    <div class="gallery-item">
+    <img src="my3.jpg" alt="img">
+    <div class="title">Light pinkish Abaya </div>
+    <div class="price">Rs. 8,000.00</div>
+        </div>
+    <div class="gallery-item">
+    <img src="my4.jpg" alt="img">
+     <div class="title">Light brownish Abaya</div>
+    <div class="price">Rs. 9,000.00</div>
+        </div>
+    <div class="gallery-item">
+     <img src="my5.jpg" alt="img">
+    <div class="title">Purple Abaya </div>
+    <div class="price">Rs. 11,500.00 </div>
+        </div>
+    <div class="gallery-item">
+    <img src="my6.jpg" alt="img">
+    <div class="title">Pink  Abaya </div>
+    <div class="price"> Rs. 8,000.00</div>
+        </div>
+    <div class="gallery-item">
+    <img src="my7.jpg" alt="img">
+    <div class="title">Dark brown with beige Abaya</div>
+    <div class="price">Rs. 5,500.00 </div>
+        </div>
+    <div class="gallery-item">
+    <img src="my8.jpg" alt="img">
+    <div class="title">Pink with Black Abaya</div>
+    <div class="price"> Rs. 8,000.00</div>
+        </div>
+    <div class="gallery-item">
+    <img src="my9.jpg" alt="img">
+    <div class="title">Maroon Abaya </div>
+    <div class="price"> Rs. 8,000.00</div>
+        </div>
+    <div class="gallery-item">
+    <img src="my10.jpg" alt="img">
+     <div class="title">beige Abaya </div>
+    <div class="price">Rs. 12,500.00 </div>
+        </div>
+        <div class="gallery-item">
+            <img src="my18.jpg" alt="img">
+             <div class="title">Light Pink Abaya </div>
+            <div class="price">Rs. 12,500.00 </div>
+        </div>
+        <div class="gallery-item">
+            <img src="my17.jpg" alt="img">
+             <div class="title">Pink Abaya </div>
+            <div class="price">Rs. 12,500.00 </div>
+            </div>
+            <div class="gallery-item">
+                <img src="my16.jpg" alt="img">
+                 <div class="title">Baby Pink Abaya </div>
+                <div class="price">Rs. 12,500.00 </div>
+</div>
+<div class="gallery-item">
+    <img src="my15.jpg" alt="img">
+     <div class="title">Pinkish Brown Abaya </div>
+    <div class="price">Rs. 12,500.00 </div>
+    </div>
+    <div class="gallery-item">
+        <img src="my14.jpg" alt="img">
+         <div class="title"> Pure Black Abaya </div>
+        <div class="price">Rs. 12,500.00 </div>
+        </div>
+        <div class="gallery-item">
+        <img src="my13.jpg" alt="img">
+        <div class="title">Brown outer robe with beige inner Abaya </div>
+        <div class="price">Rs. 12,500.00 </div>
+        </div>
+        <div class="gallery-item">
+        <img src="my12.jpg" alt="img">
+        <div class="title">Navy blue outer robe with white inner Abaya </div>
+        <div class="price">Rs. 12,500.00 </div>
+        </div>
+        <div class="gallery-item">
+        <img src="my11.jpg" alt="img">
+        <div class="title">White Abaya </div>
+        <div class="price">Rs. 12,500.00 </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <!-- Left Section: Logo & Contact -->
+                <div class="footer-left">
+                    <h1 class="logo">ABAYA WARDROBE</h1>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-maker-alt"></i>Location: ISLAMABAD</p>
+                        <p><i class="fas fa-envelope"></i>Email: XXYYZZ@gmail.com</p>
+                        <p><i class="fas fa-phone"></i>Call: +92 44 333 90453</p>
+                    </div>
+                    
+                </div>
+    
+                <!-- Middle Section: Shop By Fabrics -->
+                <div class="footer-middle">
+                    <h4>Shop By Fabrics</h4>
+                    <ul>
+                        <li><a href="#">Essential</a></li>
+                        <li><a href="#">ABAYAS</a></li>
+                        <li><a href="#">SCARVES</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Right Section: Information & Newsletter -->
+                <div class="footer-right">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ'S</a></li>
+                        <li><a href="#">Exchange, Returns & Refunds Policy</a></li>
+                    </ul>
+                    <div class="newsletter">
+                        <h4>Newsletter Signup</h4>
+                        <p>Subscribe to our newsletter and stay updated</p>
+                        <form>
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+            
+            </div>
+        </footer>
+
+
+
+
+
+</body>
+</html>
+</body>
+</html>
