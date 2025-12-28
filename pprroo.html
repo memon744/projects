@@ -294,15 +294,50 @@ font-size: 14px;
     cursor: pointer;
 }
 
-.reviews-btn {
+
+ /* chatbot styling */
+#chatbox{
     position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-    background: #000;
-    color: #fff;
-    padding: 10px
-    
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fdf6f0;
+    z-index: 1000;
+}
+#chatbox h3{
+    margin-top: 0;
+}
+#chatlog{
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+
+}
+#userInput{
+    width: 70%;
+    padding: 5px;
+}
+button{
+    padding: 5px 10px;
+    cursor: pointer;
+}
+/* optional : scrollbar style for chatlog */
+#chatlog::-webkit-scrollbar{
+   width: 6px;
+}
+#chatlog::-webkit-scrollbar-thumb{
+    background-color: #ccc;
+    border-radius: 3px;
+}
+
+
+   
    
 
 
@@ -547,7 +582,68 @@ font-size: 14px;
             </div>
         </footer>
 
-
+<!--chatbot-->
+<div id="chatbox">
+    <h3>Abaya wardrobe chatbot</h3>
+    <div id="chatlog"></div>
+    <input type="text"
+    id="userInput" placeholder="ask me something.../">
+    <button 
+    onclick="chatbot()">send</button>
+    <p>hint: ask about "products", "payment", "delievery", or "party wear".</p>
+    </div>
+    
+    <!--chatbot js-->
+    <script>
+        function chatbot() {
+            var userText =
+            document.getElementById("userInput").value.toLowerCase();
+            var chatlog =
+            document.getElementById("chatlog");
+            var botReply ="";
+            if(userText.includes("products"))
+        {
+            botReply = "we offer daily wear abayas, party wear abayas, scarves, and hijab accessories.";
+        } else
+        if(useerText.includes("party wear")){
+            botReply = "yes! we have a beautiful collection of party wear abayas for special occasions.";
+    
+        } else
+        if(userText.includes("payment")){
+            botReply = "you can pay via cash on delievery.";
+    
+        } else
+        if(userText.includes("delivery"))
+        {
+            botReply = "delivery usually takes 3-5 business days.";
+        } else
+        if(userText.includes("hi") ||
+        userText.includes("hello")){
+            botReply = "hello! how can i help you?";
+    
+        } else
+        if(userText.includes("thanks") ||
+        userText.includes("thankyou")){
+            botReply = "you are welcome!";
+    
+        } else {
+            botReply = "sorry, i didn't understand. hint: ask about 'products', 'payment', 'delivery', or 'party wear'.";
+    
+        }
+        chatlog.innerHTML +=
+        "<p><b>you:</b>" + userText + "</p>";
+        chatlog.innerHTML +=
+        "<p><b>bot:</b>" + botReply + "</p>";
+        document.getElementById("userInput").value = "";
+        chatlog.scrollTop = chatlog.scrollHeight;
+        }
+        </script>
+    
+        
+    
+    
+    
+    
 
 
 
