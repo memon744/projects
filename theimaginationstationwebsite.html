@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>art1</title>
+    <style>
+    body {
+    font-family: playfair display;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#hero {
+    background-image:url('maira2.jpg');
+    color: #fff;
+    font-weight: bolder;
+    
+    padding: 5em;
+    text-align: center;}
+
+
+
+.menu-btn {
+            display: none; /* Hidden by default on desktop */
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: linear-gradient(45deg, brown,black);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 80px 30px 30px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+            display: block;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .mobile-menu ul li a:hover {
+            background: linear-gradient(45deg, brown, black);
+            color: white;
+            padding-left: 20px;
+            border-left-color: brown;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+
+
+        
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    background-color: #f7f7f7;
+    padding: 2em;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;/* Makes image fill the container */
+    height: 400px;/* Fixed height like in the image */
+    object-fit: cover;/* Ensures image fits nicely */
+    border-radius: 10px 10px 0 0;
+    border: 3px solid white;
+}
+gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);}
+            .gallery-item .title {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+            padding: 0 10px;
+        }
+
+        .gallery-item .price {
+            color: brown;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+h2 {
+            font-size: 38px;
+            font-weight: bold;
+            margin: 30px 10px;
+            text-align: center;
+            color: #333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, brown,black);
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);}
+/* Categories section styling */
+.categories {
+    padding: 40px 20px;
+
+    background-color: #f9f9f9;
+  
+}
+.category {
+    display: inline-block;
+   margin: 5px;
+   padding:10px;
+   
+   
+}
+.category{
+    width: 20%;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    
+}
+.category img{
+    width:100%;
+    height: 200px; /* adjust height as needed */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.category h3 {
+    font-size: 20px;
+    cursor: pointer;
+    background: linear-gradient(45deg, brown,black);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.hidden {
+    display: none;
+}
+/* Contact Form */
+.contact-form {
+            width: 450px;
+            margin: 60px auto;
+            padding: 40px;
+            background: linear-gradient(135deg, #e4c5a2 0%, burlywood 100%);
+            border: 2px solid brown;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(235, 200, 147, 0.753);
+            text-align: center;
+        }
+
+        .contact-form h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, brown, black);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 2px solid brown;
+            border-radius: 10px;
+            font-size: 16px;
+            background: white;
+        }
+
+        .contact-form button[type="submit"] {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, brown, black);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(160, 119, 7, 0.774);
+        }
+
+
+#footer {
+    background-color: linear-gradient(45deg, brown,black);
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    clear: both;
+}
+.footer {
+    background: linear-gradient(45deg, brown,black);
+    padding: 40px 20px;
+    margin: 20px;
+    font-family: Arial, playfair;
+    position: relative;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left,.footer-right {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-right h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-right ul li a {
+    text-decoration: none;
+    color:white;
+    font-size: 14px;
+}
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    
+ <!-- Header Section -->
+ <header id="header">
+    <nav>
+        <ul>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="hero">
+    <h1>WELCOME TO THE IMAGINATION STATION</h1>
+    <p>"Whispers of dawn, painted on canvas wide,
+        A gentle breeze that stirs the heart inside.</p>
+       <p>  Colors dance, a symphony of light,
+       A reflection of life, in all its delight."</p>
+</section>
+<center><b><h2>EXPLORE BY CATEGORIES</h2></b></center>
+<section class="categories">
+<div class="category">
+<h3 onclick="toggleCategory('ISLAMIC')">ISLAMIC </h3>
+<div id="ISLAMIC" class="products hidden">
+<div class="product"> <img src="islamic1.jpg" alt="img">RS: 90,000</div>
+<div class="product"><img src="islamic2.jpg" alt="img" >RS: 120,000 </div>
+<div class="product"><img src="islamic3.jpg" alt="img">RS: 100000</div>
+<div class="product"><img src="islamic4.jpg" alt="img">RS: 200000</div>
+<div class="product"><img src="islamic5.jpg" alt="img">RS: 60000</div>
+
+</div>
+</div>
+                
+<div class="category">
+<h3 onclick="toggleCategory('PAINTINGS')">PAINTINGS</h3>
+<div id="PAINTINGS" class="products hidden">
+<div class="product"> <img src="paint1.jpg" alt="img">RS: 9000</div>
+<div class="product"> <img src="paint2.jpg" alt="img">RS: 10000</div>
+<div class="product"> <img src="paint3.jpg" alt="img">RS: 9000</div>
+<div class="product"> <img src="paint4.jpg" alt="img">RS: 8000</div>
+<div class="product"> <img src="paint5.jpg" alt="img">RS: 6000</div>
+
+</div>
+</div>
+         
+<div class="category">
+<h3 onclick="toggleCategory('SCULPTURES')">SCULPTURES</h3>
+<div id="SCULPTURES" class="products hidden">
+<div class="product"> <img src="scu1.jpg" alt="img">RS: 1900</div>
+<div class="product"><img src="scu2.jpg" alt="img">RS: 2000</div>
+<div class="product"> <img src="scu3.jpg" alt="img">RS: 1700</div>
+<div class="product"> <img src="scu4.jpg" alt="img">RS: 1000</div>
+<div class="product"> <img src="scu5.jpg" alt="img">RS: 1800</div>
+
+</div>
+</div>
+
+
+</section>
+                
+<script>
+function toggleCategory(id) {
+const element = document.getElementById(id);
+element.classList.toggle('hidden');
+}
+</script>
+
+
+<!-- Gallery Section -->
+<section id="gallery">
+    <h2>Collection of Artwork</h2>
+    <div class="gallery-grid" id="gallery-grid">
+        <!-- Gallery items will be generated dynamically -->
+    </div>
+</section>
+
+<!-- Contact Section -->
+<div class="contact-form" id="contact">
+    <h2>Get in Touch</h2>
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required="">
+        <input type="email" name="email" placeholder="Email Address" required="">
+        <textarea name="message" placeholder="Your Message" rows="3" required=""></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<!-- Footer Section -->
+<footer id="footer">
+        <footer class="footer">
+                <div class="footer-container">
+                    <!-- Left Section: Logo & Contact -->
+                   
+                    <div class="footer-left">
+                        <h1 class="logo">THE</h1>
+                        <h1>IMAGINATION STATION</h1>
+                        <div class="contact-info">
+                            <p><i class="fas fa-map-maker-alt"></i>Location: ISLAMABAD</p>
+                            <p><i class="fas fa-envelope"></i>Email: artdreamer786@gmail.com</p>
+                            <p><i class="fas fa-phone"></i>Call: +92 44 333 90453</p>
+                        </div>
+                        
+                    </div>
+        
+                    
+                   
+        
+                    
+                    <div class="footer-right">
+                        <h4>INFORMATION</h4>
+                        <ul>
+                            <li><a href="#">HOME</a></li>
+                            <li><a href="#">GALLERY</a></li>
+                            <li><a href="#">CATEGORIES</a></li>
+                            <li><a href="#">CONTACT</a></li>
+                        </ul>
+                        <p>&copy; 2024 Art Gallery</p>
+                    </div>
+                </div>
+        
+                
+                </div>
+            </footer>
+    
+   
+
+
+<script>
+// Gallery data
+const galleryData = [
+    {
+        id: 1,
+        title: 'WHIMSICAL',
+        description: 'Woman swings from a moon over water',
+        price: 45000,
+        image: 'art1.jpg'
+    },
+    {
+        id: 2,
+        title: 'VIBRANT',
+        description: 'Silhouette head filled with sunset sky',
+        price: 40000,
+        image: 'art2.jpg'
+    },
+    {
+        id: 3,
+        title: 'SERENE',
+        description: 'Balcony with cat viewing sea and boat',
+        price: 30000,
+        image: 'art3.jpg'
+    },
+    {
+        id: 4,
+        title: 'BUTTERFLY-BIRD FACE',
+        description: 'Women face made of butterflies & birds',
+        price: 53000,
+        image: '1.jpg'
+    },
+
+    {
+        id: 5,
+        title: 'MOONLIT TREE',
+        description: 'Tree by water under a big moon',
+        price: 30000,
+        image: '2.jpg'
+    },
+    {
+        id: 6,
+        title: 'PEACOCK SPREAD',
+        description: 'Peacock with bright feader spread',
+        price: 35000,
+        image: 'art4.jpg'
+    },
+    {
+        id: 7,
+        title: 'DREAMY',
+        description: 'Woman with bouquet in flower field',
+        price: 36000,
+        image: '3.jpg'
+    },
+    {
+        id: 8,
+        title: 'MAGICAL',
+        description: 'Girl dances under colorful moon with sparkles',
+        price: 48000,
+        image: 'art6.jpg'
+    },
+    {
+        id: 9,
+        title: 'ETHEREAL',
+        description: 'Woman on cloud with golden lights',
+        price: 34000,
+        image: 'art10.jpg'
+    },
+
+
+];
+
+// Generate gallery items
+const galleryGrid = document.getElementById('gallery-grid');
+galleryData.forEach((item) => {
+    const galleryItem = document.createElement('div');
+    galleryItem.classList.add('gallery-item');
+    galleryItem.innerHTML = `
+        <img src="${item.image}" alt="${item.title}">
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        <p>PKR ${item.price}</p>
+        <button>Add to Cart</button>
+    `;
+    galleryGrid.appendChild(galleryItem);
+});
+
+// Add to cart functionality
+const addToCartButtons = document.querySelectorAll('.gallery-item button');
+addToCartButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        // Add to cart logic here
+        alert('Added to cart!');
+    });
+});
+// Form submissions
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you soon.');
+                this.reset();
+            });
+            
+            
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
